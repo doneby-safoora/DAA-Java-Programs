@@ -5,12 +5,12 @@ class TowerOfHanoi{
     static void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod){
         //Base
         if(n == 0)
-            return;
+            return; //zero disks=nothing to move
 
-        // Step 1: Move n-1 disks from source to auxiliary
-        towerOfHanoi(n-1, from_rod, to_rod, aux_rod);
+        // Step 1: Move n-1 disks from source to helper
+        towerOfHanoi(n-1, from_rod, aux_rod, to_rod); //because aux_rod becomes the temporary destination.
 
-        // Step 2: Move the nth disk from source to destination
+        // Step 2: Move the largest(nth) disk from source to destination
         steps++;
         System.out.println("Disk " + n + " moved from " + from_rod + " to " + to_rod);
         
